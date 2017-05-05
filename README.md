@@ -18,8 +18,8 @@
 
     var s1=$('.newSelect').selectModel({
 	    optionClick: function(ｅ){
-			console.log(e);//通过ｅ参数传递你需要的数据
-		},
+		console.log(e);//通过ｅ参数传递你需要的数据
+	    },
 	    defaultIndex: 2,//默认显示第几个
 	    optionData:[{
 	        name: '魔兽世界',
