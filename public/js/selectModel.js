@@ -17,6 +17,7 @@
     function SelectModel(ele, params) {
         this.ele = ele;
         this.params = params;
+        this.optionClick = params.optionClick;//点击菜单中的每一项的回调函数
         this.init();
         this.keyboardEvent();
         this.optionMenuHide();
@@ -68,6 +69,7 @@
             var options = select.nextSibling; //下拉box
             var ul_select = options.getElementsByClassName('selectUl')[0];
             var li_options = ul_select.getElementsByTagName('li');
+            var resultObj = {};
             //点击显示隐藏菜单 并且定位到相应的item
             select.onclick = function(e) {
                 me.stopPropagation(e);
@@ -98,6 +100,9 @@
                     select.setAttribute('value', this.value); //设置value属性
                     options.style.display = 'none'; //隐藏下拉菜单
                     this.className = 'active';
+                    resultObj.name = this.innerHTML;
+                    resultObj.value = this.value;
+                    me.returnSelectedResult(resultObj);
                 };
                 li_options[i].onmouseover = function() {
                     for(var i = 0, len = li_options.length; i < len; i++) {
@@ -130,8 +135,8 @@
                 me.stopPropagation(e);
                 var new_me= null;//当前展开菜单的对象this
                 /**
-                 * -多个select时 me会是最后一个select
-                 * - 为了避免 不能点击document 隐藏除了最后一个的下拉代码
+                 * - 多个select时 me会是最后一个select
+                 * - 为了避免 不能点击document 隐藏除了最后一个的select
                  * - 需要通过标识 去获取正在展开菜单的select
                  */
                 var selectObjs = document.getElementsByClassName('select_2017_05_05');
@@ -144,6 +149,13 @@
                     if(new_me) new_me.getElementsByClassName('selectOptions')[0].style.display = 'none';
                 }
             };
+        },
+        returnSelectedResult:function(params){
+            //option click事件
+            var me = this;
+            if(typeof me.optionClick == 'function'){
+                me.optionClick(params);
+            }
         },
         stopPropagation: function(e) {
             //window.event  e.cancelBubble 适配 IE

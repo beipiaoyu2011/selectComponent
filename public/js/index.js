@@ -1,6 +1,8 @@
 
 var s1=$('.newSelect').selectModel({
-    optionClick: function(){},
+    optionClick: function(e){
+        console.log(e);
+    },
     defaultIndex: 2,//默认显示第几个
     optionData:[{
         name: '魔兽世界',
@@ -20,7 +22,9 @@ var s1=$('.newSelect').selectModel({
     }]
 });
 var s2=$('.newSelect2').selectModel({
-    optionClick: function(){},
+    optionClick: function(e){
+        console.log(e);
+    },
     defaultIndex: 0,//默认显示第几个
     optionData:[{
         name: '魔兽世界2',
