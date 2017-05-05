@@ -1,7 +1,7 @@
 ## selectComponent ##
 鉴于特殊的需求，所以模拟用div模拟select, 拥有和原生select一样的功能！
 
-**CONTACT　ＭＥ**：[https://github.com/huainanhai](https://github.com/huainanhai)
+**CONTACT ME:** master2011zhao@gmail.com
 
 ## 先让我们来扒一扒原生select框的功能： ##
 - 点击select框之外的部分，下拉菜单会收起；
