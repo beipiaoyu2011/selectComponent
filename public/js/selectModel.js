@@ -54,7 +54,7 @@
                 li_str += '<li value="' + optionData[i].value + '" class="' + activeClass + '">' + optionData[i].name + '</li>';
             }
             option_ul.innerHTML = li_str;
-            optionBox.append(option_ul);
+            optionBox.appendChild(option_ul);
             selectBox.appendChild(selectDefault);
             optionBox.style.display = 'none';
             selectBox.appendChild(optionBox);
