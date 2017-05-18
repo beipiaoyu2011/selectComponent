@@ -58,6 +58,10 @@
             selectBox.appendChild(selectDefault);
             optionBox.style.display = 'none';
             selectBox.appendChild(optionBox);
+            //清空
+            if(me.ele.getElementsByClassName('selectBox_master_wz').length){
+                me.ele.innerHTML = '';
+            }
             me.ele.appendChild(selectBox);
             //点击select
             this.selectClick();
