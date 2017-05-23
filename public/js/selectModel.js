@@ -54,10 +54,14 @@
                 li_str += '<li value="' + optionData[i].value + '" class="' + activeClass + '">' + optionData[i].name + '</li>';
             }
             option_ul.innerHTML = li_str;
-            optionBox.append(option_ul);
+            optionBox.appendChild(option_ul);
             selectBox.appendChild(selectDefault);
             optionBox.style.display = 'none';
             selectBox.appendChild(optionBox);
+            //清空
+            if(me.ele.getElementsByClassName('selectBox_master_wz').length){
+                me.ele.innerHTML = '';
+            }
             me.ele.appendChild(selectBox);
             //点击select
             this.selectClick();
